@@ -1,23 +1,24 @@
 /* GENERAL */
+html {
+  overflow-y: auto;
+  scroll-padding: 4.3rem 0 0 0;
+}
+
 body {
   font: var(--fw-redular) var(--fs-4) var(--ff-default);
   color: var(--clr-white);
   background-color: var(--clr-dark-grey);
 }
 
-
+/* ***************************************************************** */
 /* CUSTOM */
-.main-container {
-  flex-direction: row;
-}
-
+/* ASIDE - NAVBAR */
 .navbar {
   border-right: 1px var(--clr-white) solid;
-}
-
-.sidebar {
-  /* DEBUG */
-  /* border: 2px rgba(231, 41, 41, .5) solid; */
+  max-height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+    top: 0;
 }
 
 .hamburger-menu {
@@ -32,12 +33,14 @@ body {
 }
 
 .nav-element {
-  padding: .7rem 1rem 0;
+  padding: .8rem 1rem;
   border-top: 1px var(--clr-white) solid;
 
   /* Transition */
   transition: transform 200ms ease-in,
-    border 100ms 150ms ease-in-out;
+    border 100ms 150ms ease-in-out,
+    background-color 550ms cubic-bezier(.08,.46,.14,1.02),
+    border-radius 200ms ease-out;
 }
 
 .nav-element:hover {
@@ -49,11 +52,30 @@ body {
   font-size: var(--fs-4);
 }
 
+/* MAIN */
+#main-doc {
+  margin: 0 auto;
+  width: min(70rem, 90%);
+}
 
+
+/* ***************************************************************** */
 /* MEDIA QUERY */
+@media only screen and (min-width: 801px) {
+  .nav-element:hover {
+    background-color: var(--clr-accent);
+    border-radius: 0 .6rem .6rem 0;
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .main-container {
     flex-direction: column;
+  }
+
+  /* ASIDE - NAVBAR */
+  .title {
+    background-color: var(--clr-dark-grey);
   }
 
   .navbar {
@@ -75,8 +97,9 @@ body {
   
   .sidebar:hover {
     transform: translate(calc(((var(--sidebar-width)) - 3.5rem) * (-1)));
-    background-color: rgba(5, 10, 5, .95);
-    border-radius: 2rem;
+    /* background-color: rgba(5, 10, 5, .95); */
+    background-color: rgba(144, 69, 219, .95);
+    border-radius: 0 0 0 2rem;
   }
 
   .hamburger-menu {
@@ -100,6 +123,9 @@ body {
   .sidebar-list {
     text-align: end;
   }
+
+  /* MAIN DOC */
+
 }
 
 
