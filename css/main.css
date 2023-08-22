@@ -65,6 +65,10 @@ body {
   width: min(70rem, 90%);
 }
 
+.main-section p + p {
+  margin-top: .8rem;
+}
+
 
 /* ***************************************************************** */
 /* MEDIA QUERY */
